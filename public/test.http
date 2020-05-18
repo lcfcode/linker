@@ -1,8 +1,0 @@
-#POST http://tp6.local.com/mytest/post
-
-###
-
-
-POST http://127.0.0.1:8090/demo/index/index
-
-###

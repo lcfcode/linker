@@ -4,15 +4,13 @@
 config/*.php
 !config/common.config.php
 !config/default.config.php
-public/index.php
+#public/index.php
 
 
 ###########################
 #附加等
 ###########################
-scanlib/.gitignore
-scanlib/composer.json
-scanlib/README.md
+swap/*
 
 
 ###########################
