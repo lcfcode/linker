@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/common/css/pc-rest.css">
+</head>
+<body>
+
+<!--提示框-->
+<link rel="stylesheet" href="/plugin/msg_box/new-box-css.css">
+<script src="/plugin/msg_box/new-box-js.js"></script>
+<div id="mask"></div>
+<div id="_msg_box" class="_msg-box">
+    <div id="msg_info" class="_msg-content">
+        <div class="blocked-title-info">
+            <p class="msg-p">消息提示</p>
+        </div>
+        <div class="blocked-title">
+            <p class="p-title">警告操作</p>
+        </div>
+        <div class="blocked-button">
+            <a href="javascript:;" class="msg-button msg-enter">确 定</a>
+            <a href="javascript:;" class="msg-button blocked-button-c msg-cancel">取 消</a>
+        </div>
+    </div>
+    <div id="msg_info2" class="_msg-content">
+        <div class="blocked-title-info">
+            <p class="msg-p">消息提示</p>
+        </div>
+        <div class="blocked-title">
+            <p class="p-title">警告操作</p>
+        </div>
+        <div class="blocked-button">
+            <a href="javascript:;" class="msg-button msg-enter">确 定</a>
+        </div>
+    </div>
+    <div id="error_info" class="_msg-content">
+        <div class="blocked-title-info">
+            <p class="msg-p">错误提示</p>
+        </div>
+        <div class="blocked-title">
+            <p class="p-title ">错误操作</p>
+        </div>
+        <div class="blocked-button">
+            <a href="javascript:;" class="msg-button msg-enter">确 定</a>
+            <!--<a href="javascript:;" class="msg-button blocked-button-c msg-cancel">取 消</a>-->
+        </div>
+    </div>
+    <div id="info_loading" class="_msg-content">
+        <div class="blocked-title-info">
+            <p class="msg-p">正在加载</p>
+        </div>
+        <div class="blocked-info">
+            <div class="msg-img-loading"></div>
+        </div>
+    </div>
+</div>
+
+<button id="my_test">test</button>
+</body>
+</html>
+
+<script src="jquery.min.js"></script>
+
+<script>
+    $(function(){
+//        alert(1);
+        $("#my_test").click(function(){
+            msgBox.show_box("#msg_info","确定操作确定操作确定操作确定操作确定操作确定操作确定操作",test,test2);
+        });
+        function test(){
+            console.log("6545645646！");
+            alert('确定')
+        }
+        function test2(){
+            alert("取消！");
+        }
+    });
+</script>

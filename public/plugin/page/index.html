@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<link href="page.css" rel="stylesheet">
+
+<body>
+
+    <div class="text-center mt30">
+        <div id="myselfRelationTable_pageDh" class="pageDh"></div>
+    </div>
+
+</body>
+</html>
+
+<script src="jquery.min.js"></script>
+<script src="paging.js"></script>
+<script src="yz.js"></script>
+<script>
+    /*分页开始*/
+    var pageSize = 10;  //每页显示条数，和后台约束的统一
+    var showCount = 10;	//显示的分页按钮个数
+    var page = yz.GetQueryString("page") >0 ? yz.GetQueryString("page") :1; //当前页
+    var url = window.location.href;  //当前url
+    var totalCount = 101; //总条数
+    /* 绑定事件 */
+    getPageDh(page,pageSize,totalCount,showCount,'','myselfRelationTable_pageDh',url);
+    /*分页结束*/
+</script>

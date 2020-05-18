@@ -1,0 +1,60 @@
+.login {
+  width: 350px;
+  height: 385px;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #fff;
+  border-radius: 6px;
+  padding: 20px 30px;
+}
+.login input[type=text],
+.login input[type=password] {
+  border-radius: 3px;
+  border: none;
+  color: #333;
+  font-size: 16px;
+  height: 42px;
+  margin-bottom: 5px;
+  padding: 13px 12px;
+  width: 100%;
+  background: #e8e8e8;
+}
+.login input[type=text]:focus,
+.login input[type=password]:focus {
+  background: #d7d7d7;
+}
+.login button {
+  border-radius: 3px;
+  background-color: #0BF;
+  border-color: #0BF;
+  border-width: 0;
+  color: #FFF;
+  display: block;
+  margin: 0 auto;
+  padding: 15px 50px;
+  text-transform: uppercase;
+  width: 100%;
+  font-size: 16px;
+}
+.login .yzm {
+  position: relative;
+}
+.login .yzm img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid grey;
+  border-radius: 3px;
+  width: 122px;
+  cursor: pointer;
+}
+.login .yzm .input {
+  width: 160px;
+}
+.login button:hover {
+  background: #03A2DB;
+}

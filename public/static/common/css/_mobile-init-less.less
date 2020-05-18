@@ -1,0 +1,62 @@
+@gray-base: #000;
+@gray-darker: lighten(@gray-base, 13.5%); //#222
+@gray-dark: lighten(@gray-base, 20%); //#333
+@gray: lighten(@gray-base, 33.5%); //#555
+@gray-light: lighten(@gray-base, 46.7%); //#777
+@gray-lighter: lighten(@gray-base, 93.5%); //#eee
+
+@brand-primary: darken(#428bca, 6.5%); //#337ab7
+@brand-success: #5cb85c;
+@brand-info: #5bc0de;
+@brand-warning: #f0ad4e;
+@brand-danger: #d9534f;
+
+@body-bg: #fff;
+@text-color: @gray-dark;
+
+@base-value:75;
+@fiducial-value:28;
+@font-size-base: (@fiducial-value/@base-value)*1rem;
+@font-size-large: (@font-size-base*1.25); //~.5rem
+@font-size-45: (@font-size-base*1.125); //~.45rem
+@font-size-small: (@font-size-base*0.875); //~.35rem
+
+@font-size-h1: (@font-size-base*2.6); //~36px
+@font-size-h2: (@font-size-base*2.15); //~30px
+@font-size-h3: (@font-size-base*1.7); //~24px
+@font-size-h4: (@font-size-base*1.25); //~18px
+@font-size-h5: @font-size-base;
+@font-size-h6: (@font-size-base*0.85); //~12px
+
+.px2rem(@name,@px) {
+    @{name}: (@px/@base-value)*1rem;
+}
+
+.px2px(@name,@px) {
+    @{name}: round(@px/2)*1px;
+  [data-dpr="2"] & {
+      @{name}: @px*1px;
+  }
+  //formx3
+  [data-dpr="2.5"] & {
+      @{name}: round(@px*2.5/2)*1px;
+  }
+  //for小米note
+  [data-dpr="2.75"] & {
+      @{name}: round(@px*2.75/2)*1px;
+  }
+  [data-dpr="3"] & {
+      @{name}: round(@px/2*3)*1px
+  }
+  //for三星note4
+  [data-dpr="4"] & {
+      @{name}: @px*2px;
+  }
+}
+.box-shadow(@style:0 0 0.08rem 0.04rem, @c) when (iscolor(@c)) {
+  -webkit-box-shadow: @style @c;
+  box-shadow:         @style @c;
+}
+.box-shadow(@style:0 0 0.08rem 0.04rem, @alpha: 50%) when (isnumber(@alpha)) {
+  .box-shadow(@style, rgba(0, 0, 0, @alpha));
+}

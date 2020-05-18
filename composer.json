@@ -1,0 +1,26 @@
+{
+  "name": "lcfdev/linker",
+  "description": "work study",
+  "type": "project",
+  "authors": [
+    {
+      "name": "lcfdev",
+      "email": "lcf@jionx.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "lcfdev/linkerlib": "dev-master",
+    "filp/whoops": "*"
+  },
+  "minimum-stability": "dev",
+  "config": {
+    "preferred-install": "dist"
+  },
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://mirrors.aliyun.com/composer/"
+    }
+  }
+}

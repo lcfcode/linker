@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<link href="page.css" rel="stylesheet">
+<link href="base-rest.min.css" rel="stylesheet">
+
+<body>
+
+<div style="text-align: center;margin: 0 auto;width: 100%;height: 50px;background: green;padding-top: 10px">
+    <div class="tc mt30">
+        <div id="myselfRelationTable_pageDh" class="pageDh pb30"></div>
+    </div>
+</div>
+</body>
+</html>
+
+<script src="jquery.min.js"></script>
+<script src="paging.js"></script>
+
+<script>
+    /*分页开始*/
+    var pageSize  =10;
+    var showCount =10;
+    var page = GetQueryString("page") > 0 ? GetQueryString("page") : 1;
+    var url = window.location.href;
+    var totalCount = 101;
+    /* 绑定事件 */
+    getPageDh(page,pageSize,totalCount,showCount,'','myselfRelationTable_pageDh',url);
+    /*分页结束*/
+</script>

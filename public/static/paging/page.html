@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="paging.css">
+    <script src="paging.js"></script>
+</head>
+<body>
+<div style="height: 210px;">
+     <h1>demo</h1>
+</div>
+<!--分页-->
+<p style="height: 50px"></p>
+<div style="width: 100%;">
+    <div class="tc mt30">
+        <div id="myselfRelationTable_pageDh" class="pageDh pb30"></div>
+    </div>
+    <input type="hidden" id="_page_num" page_size="10" value="10">
+</div>
+<!--分页-->
+</body>
+</html>
+<script>
+    $(function () {
+        var pageSize  =10;
+        var showCount =10;
+        var page = GetQueryString("page") > 0 ? GetQueryString("page") : 1;
+        var url = window.location.href;
+        var totalCount =101;
+        /* 绑定事件 */
+        getPageDh(page,pageSize,totalCount,showCount,'','myselfRelationTable_pageDh',url);
+    });
+</script>

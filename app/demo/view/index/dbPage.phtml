@@ -1,0 +1,69 @@
+<link rel="stylesheet" type="text/css" href="/static/css/index-index-detail.css?<?php echo $this->v(); ?>">
+<table>
+    <?php
+    $result = $this->data['result'];
+    if ($result) {
+        foreach ($result as $sk=>$item) {
+            ?>
+            <tr>
+                <?php
+                foreach ($item as $k) {
+                    echo "<td>{$sk}-{$k}</td>";
+                }
+                ?>
+            </tr>
+            <?php
+        }
+    }
+
+    ?>
+</table>
+
+<!--分页-->
+<link rel="stylesheet" type="text/css" href="/static/paging/paging.css">
+<script src="/static/paging/paging.js?<?php echo time();  ?>"></script>
+<p style="height: 50px"></p>
+<div style="width: 100%;">
+    <div class="tc mt30">
+        <div id="myselfRelationTable_pageDh" class="pageDh pb30"></div>
+    </div>
+</div>
+<p style="height: 50px"></p>
+<div style="width: 100%;">
+    <div class="tc mt30">
+        <div id="myselfRelationTable_pageDh1" class="pageDh pb30"></div>
+    </div>
+</div>
+<!--分页-->
+<script>
+    $(function () {
+        var pageSize =<?php echo $this->data['list_num'] ?>;
+        var showBtn = 10;
+        var totalCount =<?php echo $this->data['count'] ?>;
+        /* 绑定事件 */
+
+
+
+        // console.log(url);
+
+        // var param = url.substring(url.indexOf('?') + 1);
+        // console.log(param);
+        // var item = '',
+        //     key = '',
+        //     val = '',
+        //     parameter = {};
+        // var paramArr = param.split('&');
+        // // console.log(paramArr);
+        // for (var i = 0, len = paramArr.length; i < len; i++) {
+        //     item = paramArr[i].split('=');
+        //     key = item[0];
+        //     val = item[1];
+        //     parameter[key] = val;
+        // }
+        // console.log(parameter);
+
+        getPaging(totalCount, showBtn,'myselfRelationTable_pageDh');
+
+        // getPageDh(page, pageSize, totalCount, showBtn, '', 'myselfRelationTable_pageDh1', url);
+    });
+</script>
