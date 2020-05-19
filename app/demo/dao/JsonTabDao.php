@@ -3,36 +3,16 @@
  * @link https://gitee.com/lcfcode/linker
  * @link https://github.com/lcfcode/linker
  */
-    
+
 namespace app\demo\dao;
 
 use swap\core\Dao;
 
 class JsonTabDao extends Dao
 {
-    /**
-     * @inheritDoc
-     */
-    public function connectInfo(): array
+    public function setConnect()
     {
-        return [
-            'table' => $this->tabName(),
-            'default_id' => $this->defaultId(),
-            'field' => $this->fieldArr(),
-            'db' => 'db_2'
-        ];
-    }
-
-    //表名
-    public function tabName()
-    {
-        return 'json_tab';
-    }
-
-    //默认主键字段
-    public function defaultId()
-    {
-        return 'id';
+        return 'db_2';
     }
 
     //表字段
@@ -41,22 +21,5 @@ class JsonTabDao extends Dao
         return [
             'id' => 'id', 'data' => 'data',
         ];
-    }
-
-    //表字段,直接返回字符串或者对应字段生成的别名
-    public function field($prefix = '', $tabAlias = '')
-    {
-        if (empty($prefix)) {
-            return implode(',', $this->fieldArr());
-        }
-        if (empty($tabAlias)) {
-            $tabAlias = $prefix;
-        }
-        $str = '';
-        $fieldArr = $this->fieldArr();
-        foreach ($fieldArr as $key => $row) {
-            $str .= ',' . $tabAlias . '.' . $row . ' as ' . $prefix . $key;
-        }
-        return trim($str, ',');
     }
 }
