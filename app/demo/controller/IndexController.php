@@ -52,7 +52,7 @@ class IndexController extends Controller
 //        $studentService = new StudentService();
 //        $result = $studentService->getAll();
         $view = new View($data);
-//        $view->setLayout('layout2')->setView('test');
+//        $view->setLayout('Layout2')->setView('test');
 //        $view->setView('index2','Index2');
         return $view;
     }
@@ -130,7 +130,7 @@ class IndexController extends Controller
 //        $resutl=$s->transaction();
 //        var_dump($resutl);
         $view = new View();
-        $view->setLayout('layout2')->setView('index', 'index2');//设置跳转到别的页面
+        $view->setLayout('Layout2')->setView('index', 'Index2');//设置跳转到别的页面
         return $view;
     }
 
