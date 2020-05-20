@@ -20,7 +20,6 @@ if (is_file(__DIR__ . '/../vendor/autoload.php')) {
 }
 
 $setConfig = [
-//    'app_path' => 'app',//应用目录，如果修改
     'err_obj' => new AppException(),//异常处理类 已经实例化过的
 ];
 
