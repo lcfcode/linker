@@ -11,7 +11,7 @@
   "require": {
     "php": ">=7.0",
     "lcfdev/linkerlib": "dev-master",
-    "filp/whoops": "*"
+    "filp/whoops": "^2.7"
   },
   "minimum-stability": "dev",
   "config": {

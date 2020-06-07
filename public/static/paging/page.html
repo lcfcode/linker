@@ -14,23 +14,17 @@
 </div>
 <!--分页-->
 <p style="height: 50px"></p>
-<div style="width: 100%;">
-    <div class="tc mt30">
-        <div id="myselfRelationTable_pageDh" class="pageDh pb30"></div>
-    </div>
-    <input type="hidden" id="_page_num" page_size="10" value="10">
+<div style="width: 100%;" id="my_paging">
 </div>
 <!--分页-->
 </body>
 </html>
 <script>
     $(function () {
-        var pageSize  =10;
-        var showCount =10;
-        var page = GetQueryString("page") > 0 ? GetQueryString("page") : 1;
-        var url = window.location.href;
+        var pageSize  =20;
+        var showBtn =10;
         var totalCount =101;
         /* 绑定事件 */
-        getPageDh(page,pageSize,totalCount,showCount,'','myselfRelationTable_pageDh',url);
+        getPaging(totalCount, showBtn, 'my_paging', pageSize)
     });
 </script>
