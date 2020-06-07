@@ -32,8 +32,7 @@
         <td>qq</td>
         <td>update_time</td>
     </tr>
-    <?php
-    foreach ($this->data['like_result'] as $rowLike){ ?>
+    <?php foreach ($this->data['like_result'] as $rowLike): ?>
         <tr>
             <td><?php echo $rowLike['id']; ?></td>
             <td><?php echo $rowLike['name']; ?></td>
@@ -43,8 +42,7 @@
             <td><?php echo $rowLike['qq']; ?></td>
             <td><?php echo $rowLike['update_time']; ?></td>
         </tr>
-    <?php }
-    ?>
+    <?php endforeach; ?>
 </table>
 <p class="p1">成绩</p>
 <table>
@@ -54,16 +52,14 @@
         <td>course_nane</td>
         <td>score</td>
     </tr>
-    <?php
-    foreach ($this->data['source'] as $rowSource){ ?>
+    <?php foreach ($this->data['source'] as $rowSource): ?>
         <tr>
             <td><?php echo $rowSource['job_number']; ?></td>
             <td><?php echo $rowSource['name']; ?></td>
             <td><?php echo $rowSource['course_name']; ?></td>
             <td><?php echo $rowSource['score']; ?></td>
         </tr>
-    <?php }
-    ?>
+    <?php endforeach; ?>
 </table>
 <p class="p1">第二个数据库的数据</p>
 <table>
@@ -74,8 +70,7 @@
         <td>age</td>
         <td>sex</td>
     </tr>
-    <?php
-    foreach ($this->data['employee'] as $rowEmp){ ?>
+    <?php foreach ($this->data['employee'] as $rowEmp): ?>
         <tr>
             <td><?php echo $rowEmp['num']; ?></td>
             <td><?php echo $rowEmp['id']; ?></td>
@@ -83,12 +78,11 @@
             <td><?php echo $rowEmp['age']; ?></td>
             <td><?php echo $rowEmp['sex']; ?></td>
         </tr>
-    <?php }
-    ?>
+    <?php endforeach; ?>
 </table>
 
 <script>
-    window.onload=function () {
+    window.onload = function () {
         test();
     };
 </script>
