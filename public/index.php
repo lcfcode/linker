@@ -6,7 +6,6 @@
  * 入口文件
  */
 
-use app\AppException;
 use swap\linker\App;
 
 header('Content-Type:text/html;charset=UTF-8');
@@ -19,8 +18,5 @@ if (is_file(__DIR__ . '/../vendor/autoload.php')) {
     include __DIR__ . '/../vendor/autoload.php';
 }
 
-$setConfig = [
-    'err_obj' => new AppException(),//异常处理类 已经实例化过的
-];
-
-new App('dev', $setConfig);
+//new App('dev','demo');
+new App('dev');

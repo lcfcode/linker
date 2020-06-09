@@ -49,10 +49,12 @@ return [
         'port' => 6379,
         'db' => '0'
     ],
-    //配置日志文件路径(linux注意权限) 前面不要缺少'/',尾部不要添加'/'  路径是相对项目路径开始,
-    'logs' => __DIR__ . '/../tools/logs',
+    //配置日志文件路径(linux注意权限) 前面不要缺少'/',尾部不要添加'/'  路径是相对项目路径开始
+    'logs' => '/vars/logs',
     //模块配置文件
     'module_file' => 'Config.dev.php',
     //包含可变的配置
     'multi_profile' => 'common.config.php',
+    //错误异常处理实例(主要用于开发)
+    'err_obj' => '\\app\\AppException',
 ];
