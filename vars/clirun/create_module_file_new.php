@@ -137,9 +137,9 @@ function inputModule($root)
         if (!is_dir($patch . '/dao/')) {
             mkdir($patch . '/dao/', 0777, true);
         }
-        if (!is_dir($patch . '/service/')) {
-            mkdir($patch . '/service/', 0777, true);
-        }
+//        if (!is_dir($patch . '/service/')) {
+//            mkdir($patch . '/service/', 0777, true);
+//        }
         if (!is_dir($patch . '/controller/')) {
             mkdir($patch . '/controller/', 0777, true);
         }
@@ -187,14 +187,14 @@ function createFiles($patch, $module, $tabDaoArr, $originalTabArr, $fieldArr, $d
             generateFile($daoFile, $daoContent);
             echo "create:" . $dao . ".php done " . PHP_EOL;
         }
-        $serviceContent = getServiceContent($service, $dao, $module, lcfirst($daoPrefix));
-        $serviceFile = $patch . '/service/' . $service . '.php';
-        if (is_file($serviceFile)) {
-            echo $service . ".php exists ---------------------------" . PHP_EOL;
-        } else {
-            generateFile($serviceFile, $serviceContent);
-            echo "create:" . $service . ".php done " . PHP_EOL;
-        }
+//        $serviceContent = getServiceContent($service, $dao, $module, lcfirst($daoPrefix));
+//        $serviceFile = $patch . '/service/' . $service . '.php';
+//        if (is_file($serviceFile)) {
+//            echo $service . ".php exists ---------------------------" . PHP_EOL;
+//        } else {
+//            generateFile($serviceFile, $serviceContent);
+//            echo "create:" . $service . ".php done " . PHP_EOL;
+//        }
     }
 }
 

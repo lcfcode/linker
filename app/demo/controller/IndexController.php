@@ -10,7 +10,7 @@ use app\demo\service\EmployeeService;
 use app\demo\service\ExamService;
 use app\demo\service\StudentService;
 use swap\core\Controller;
-use swap\linker\View;
+use swap\core\View;
 use swap\utils\ApiTool;
 use swap\utils\Helper;
 use swap\utils\VerifyCode;
@@ -22,7 +22,7 @@ class IndexController extends Controller
 //        Helper::that();
 //        p(Helper::config(true));
 //        p(Helper::getUrl());
-//        p($this->getConfigValue('user_config'));
+        p($this->getConfigValue('user_config'));
 //        echo $this->getUtils()->getIp();
 //        $redis=$this->getRedis();
 //        $redis->set('lian','xxxxx');
@@ -52,7 +52,7 @@ class IndexController extends Controller
 //        $studentService = new StudentService();
 //        $result = $studentService->getAll();
         $view = new View($data);
-//        $view->setLayout('Layout2')->setView('test');
+//        $view->setLayout('layout2')->setView('test');
 //        $view->setView('index2','Index2');
         return $view;
     }
@@ -130,7 +130,7 @@ class IndexController extends Controller
 //        $resutl=$s->transaction();
 //        var_dump($resutl);
         $view = new View();
-        $view->setLayout('Layout2')->setView('index', 'Index2');//设置跳转到别的页面
+        $view->setLayout('layout2')->setView('index', 'Index2');//设置跳转到别的页面
         return $view;
     }
 

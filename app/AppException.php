@@ -6,7 +6,7 @@
     
 namespace app;
 
-use swap\linker\Error;
+use swap\core\Error;
 
 /**
  * 应用异常处理类

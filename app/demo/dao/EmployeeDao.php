@@ -15,6 +15,18 @@ class EmployeeDao extends Dao
         return 'db_2';
     }
 
+    //表名
+    public function tabName()
+    {
+        return 'employee';
+    }
+
+    //默认主键字段
+    public function defaultId()
+    {
+        return 'id';
+    }
+
     //表字段
     public function fieldArr()
     {

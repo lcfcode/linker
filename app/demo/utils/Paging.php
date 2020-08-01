@@ -1,12 +1,6 @@
 <?php
-/**
- * @link https://gitee.com/lcfcode/linker
- * @link https://github.com/lcfcode/linker
- */
-    
-namespace app\demo\utils;
 
-use swap\utils\Helper;
+namespace app\admin\utils;
 
 class Paging
 {
@@ -60,7 +54,7 @@ class Paging
 
         $this->firstRow = $this->pageSize * ($this->pageNow - 1);
 
-        $this->url = $url ? $url : Helper::getUrl();
+        $this->url = $url ? $url : get_url();
         $this->showBtn = $showBtn;
     }
 
@@ -69,12 +63,10 @@ class Paging
         $page = $this->pageNow;
         $showBtn = $this->showBtn;
         $pageCount = ceil($this->countTotal / $this->pageSize) > 1 ? ceil($this->countTotal / $this->pageSize) : 1;
-
-        if ($this->countTotal <= $this->pageSize) {
+        if ($this->countTotal < $this->pageSize) {
             //不足一页就直接显示总记录
             return '<div class="self-paging">总记录（' . $this->countTotal . '）</div>';
         }
-
         if ($pageCount < $showBtn) {
             $pageB = 1;
             $pageE = $pageCount;
@@ -117,6 +109,21 @@ class Paging
         return '<div class="self-paging">总记录（' . $this->countTotal . '）&nbsp;' . $prev . $pageHref . $next . $listNumPg . $selectPg . $this->js() . '</div>';
     }
 
+    public function now()
+    {
+        return $this->firstRow;
+    }
+
+    public function size()
+    {
+        return $this->pageSize;
+    }
+
+    public function setParam($key, $value)
+    {
+        $this->parameter[$key] = $value;
+    }
+
     private function js()
     {
         return '
@@ -128,16 +135,6 @@ class Paging
     })();
 </script>
 ';
-    }
-
-    public function now()
-    {
-        return $this->firstRow;
-    }
-
-    public function size()
-    {
-        return $this->pageSize;
     }
 
     private function purl($page = 1, $flag = false)
@@ -191,69 +188,20 @@ class Paging
 
     public function css()
     {
-        return <<<CSS
-/***分页样式**/
-.self-paging {
-    padding-bottom: 20px;
-    margin-left: -2px;
-    text-align: center;
-}
+        return "
+<style>
+    /***分页样式**/
+    .self-paging{padding-bottom:20px;margin-left:-2px;text-align:center}
+    .self-paging a{position:relative;padding:4px 14px;line-height:1.42857143;color:#1abc9c;text-decoration:none;background-color:#fff;border:1px solid #dcdcdc;display:inline-block;box-sizing:border-box;vertical-align:middle;font-size:14px;margin-left:-1px}
+    
+    /*.self-paging a:nth-child(1),.self-paging a:nth-last-child(1)  {border-top-left-radius: 2px;border-bottom-left-radius: 2px;}*/
+    /*.self-paging a:last-child{border-top-right-radius: 4px;border-bottom-right-radius: 4px;}*/
 
-.self-paging a {
-    position: relative;
-    padding: 4px 14px;
-    line-height: 1.42857143;
-    color: #333;
-    text-decoration: none;
-    background-color: #fff;
-    border: 1px solid #EEEEEE;
-    display: inline-block;
-    box-sizing: border-box;
-    vertical-align: middle;
-    font-size: 14px;
-    margin-left: -1px;
-}
-
-/*.self-paging a:nth-child(1),.self-paging a:nth-last-child(1)  {border-top-left-radius: 2px;border-bottom-left-radius: 2px;}*/
-/*.self-paging a:last-child{border-top-right-radius: 4px;border-bottom-right-radius: 4px;}*/
-
-.self-paging a:hover {
-    background-color: #ddd;
-    border-color: #ddd
-}
-
-.self-paging .cursor_default {
-    cursor: default;
-    background-color: #ddd;
-    border-color: #ddd;
-    color: #9b9b9b
-}
-
-.self-paging ._select_page {
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAJ0lEQVQ4jWNgGAWDEyQwMDD8x4ETKDGEaM3YDCFZM7IhZGseBfQCANaYDvVK269hAAAAAElFTkSuQmCC') no-repeat scroll right center transparent;
-    height: 30px;
-    outline: none;
-    border: 1px solid #EEEEEE;
-    /*border-radius:2px;*/
-    color: #555;
-    display: inline-block;
-    font-size: 14px;
-    line-height: 1.42857;
-    padding: 4px 17px 4px 6px;
-    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-    box-sizing: border-box;
-    vertical-align: middle;
-}
-
-.self-paging ._now_page, .self-paging ._now_page:hover {
-    background-color: #CA4500;
-    color: #fff;
-    border: 1px solid #CA4500;
-}
-CSS;
-
+    .self-paging a:focus,.self-paging a:hover{background-color:#ddd;border-color:#ddd;color:#1dd2af}
+    .self-paging .cursor_default{cursor:default;background-color:#ddd;border-color:#ddd;color:#9b9b9b}
+    .self-paging ._select_page{appearance:none;-moz-appearance:none;-webkit-appearance:none;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAJ0lEQVQ4jWNgGAWDEyQwMDD8x4ETKDGEaM3YDCFZM7IhZGseBfQCANaYDvVK269hAAAAAElFTkSuQmCC) no-repeat scroll right center transparent;height:30px;outline:0;border:1px solid #dcdcdc;color:#555;display:inline-block;font-size:14px;line-height:1.42857;padding:4px 17px 4px 6px;transition:border-color .15s ease-in-out 0s,box-shadow .15s ease-in-out 0s;box-sizing:border-box;vertical-align:middle}
+    .self-paging ._now_page,.self-paging ._now_page:hover{background-color:#1dccaa;color:#fff;border:1px solid #1dccaa}
+</style>
+";
     }
 }
