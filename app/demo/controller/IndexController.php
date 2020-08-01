@@ -22,7 +22,7 @@ class IndexController extends Controller
 //        Helper::that();
 //        p(Helper::config(true));
 //        p(Helper::getUrl());
-        p($this->getConfigValue('user_config'));
+//        p($this->getConfigValue('user_config'));
 //        echo $this->getUtils()->getIp();
 //        $redis=$this->getRedis();
 //        $redis->set('lian','xxxxx');

@@ -7,9 +7,8 @@
 namespace app\demo\service;
 
 use app\demo\dao\EmployeeDao;
-use swap\core\Service;
 
-class EmployeeService extends Service
+class EmployeeService
 {
     private $employeeDao = null;
 

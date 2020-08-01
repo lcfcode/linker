@@ -6,12 +6,11 @@
     
 namespace app\demo\service;
 
-use swap\core\Service;
 use app\demo\dao\ExamDao;
 use app\demo\dao\StudentDao;
 use app\demo\dao\CourseDao;
 
-class ExamService extends Service
+class ExamService
 {
     private $examDao = null;
     private $studentDao = null;

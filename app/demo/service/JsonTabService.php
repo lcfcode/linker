@@ -7,9 +7,8 @@
 namespace app\demo\service;
 
 use app\demo\dao\JsonTabDao;
-use swap\core\Service;
 
-class JsonTabService extends Service
+class JsonTabService
 {
     private $jsonTabDao = null;
 

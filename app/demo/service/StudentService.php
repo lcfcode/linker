@@ -8,9 +8,9 @@ namespace app\demo\service;
 
 use app\demo\dao\ExamDao;
 use app\demo\dao\StudentDao;
-use swap\core\Service;
+use swap\utils\Helper;
 
-class StudentService extends Service
+class StudentService
 {
     private $studentDao = null;
     private $examDao = null;
@@ -58,8 +58,8 @@ class StudentService extends Service
     public function likes($content)
     {
         //test logs
-        $userConfig = $this->getConfigValue('user_config');
-        $this->logs('获取配置文件信息', $userConfig);
+        $userConfig = Helper::config('user_config');
+        Helper::logs('获取配置文件信息', $userConfig);
 
         return $this->dao()->like('name', $content, [], false, ['age' => 'desc'], 1, 5);
     }
