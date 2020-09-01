@@ -3,7 +3,7 @@
  * @link https://gitee.com/lcfcode/linker
  * @link https://github.com/lcfcode/linker
  */
-    
+
 namespace app\demo\utils;
 
 use swap\utils\Helper;

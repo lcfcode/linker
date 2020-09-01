@@ -3,7 +3,7 @@
  * @link https://gitee.com/lcfcode/linker
  * @link https://github.com/lcfcode/linker
  */
-    
+
 namespace app\demo\service;
 
 use app\demo\dao\CourseDao;

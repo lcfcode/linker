@@ -6,8 +6,8 @@
  * 入口文件
  */
 
-$startTime=$_SERVER['REQUEST_TIME_FLOAT'];
-$startMemory=memory_get_usage();
+$startTime = $_SERVER['REQUEST_TIME_FLOAT'];
+$startMemory = memory_get_usage();
 
 header('Content-Type:text/html;charset=UTF-8');
 
