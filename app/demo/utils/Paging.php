@@ -60,7 +60,12 @@ class Paging
 
         $this->firstRow = $this->pageSize * ($this->pageNow - 1);
 
-        $this->url = $url ? $url : Helper::getUrl();
+        if (empty($url)) {
+            $requestUrl = $_SERVER['REQUEST_URI'];
+            $index = strpos($requestUrl, '?');
+            $url = $index > 0 ? substr($requestUrl, 0, $index) : $requestUrl;
+        }
+        $this->url = $url;
         $this->showBtn = $showBtn;
     }
 
