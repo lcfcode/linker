@@ -60,7 +60,6 @@ class IndexController extends Controller
         //查看成绩
         $examService = new ExamService($this->app);
         $source = $examService->getExam();
-        $examTmp = $examService->getExam2();
 //        $tt=$examService->test();
         //查询--第二个数据库的数据
         $employeeService = new EmployeeService($this->app);

@@ -34,7 +34,7 @@ class ExamService extends Service
     public function studentDao()
     {
         if ($this->studentDao === null) {
-            $this->studentDao = new StudentDao();
+            $this->studentDao = new StudentDao($this->app);
         }
         return $this->studentDao;
     }
@@ -46,7 +46,7 @@ class ExamService extends Service
     {
 
         if ($this->courseDao === null) {
-            $this->courseDao = new CourseDao();
+            $this->courseDao = new CourseDao($this->app);
         }
         return $this->courseDao;
     }
@@ -55,24 +55,6 @@ class ExamService extends Service
     public function getExam()
     {
         return $this->dao()->query("select s.name,s.id,s.job_number,c.course_name,e.score from student as s LEFT JOIN exam as e on s.id=e.student_id LEFT JOIN course as c ON e.course_id=c.id WHERE e.score>=98 ORDER BY e.score desc");
-    }
-
-    //
-    public function getExam2()
-    {
-        $student = $this->studentDao()->tabName();
-        $exam = $this->dao()->tabName();
-        $course = $this->courseDao()->tabName();
-
-        $studentField = $this->studentDao()->field('s');
-        $examField = $this->dao()->field('e');
-        $courseField = $this->courseDao()->field('c');
-
-        $sql = "select {$studentField},{$examField},{$courseField} from {$student} as s LEFT JOIN {$exam} as e ON s.id=e.student_id LEFT JOIN {$course} as c ON e.course_id=c.id WHERE e.score>=98 ORDER BY e.score desc";
-//        echo $sql;die;
-        $result = $this->dao()->query($sql);
-//        print_r($this->dao()->getLastSql());
-        return $result;
     }
 
     //
