@@ -3,7 +3,7 @@
  * @link https://gitee.com/lcfcode/linker
  * @link https://github.com/lcfcode/linker
  */
-    
+
 namespace app\demo\controller;
 
 use app\demo\service\EmployeeService;
@@ -11,26 +11,15 @@ use app\demo\service\ExamService;
 use app\demo\service\StudentService;
 use swap\core\Controller;
 use swap\core\View;
-use swap\utils\ApiTool;
-use swap\utils\Helper;
 use swap\utils\VerifyCode;
 
 class IndexController extends Controller
 {
     public function indexAction()
     {
-//        Helper::that();
-//        p(Helper::config(true));
-//        p(Helper::getUrl());
-//        p($this->getConfigValue('user_config'));
-//        echo $this->getUtils()->getIp();
-//        $redis=$this->getRedis();
-//        $redis->set('lian','xxxxx');
-//        print_r($redis->get('lian'));
         //返回给页面的数据放到 View 的构造内
 //        print_r($this->getConfigValue('user_config'));
         $this->logs($this->getConfigValue('user_config'));
-        $this->logs(Helper::config(true));
         $data = [
             'times' => time(),
             'date' => date('Y-m-d H:i:s'),
@@ -49,10 +38,10 @@ class IndexController extends Controller
                 ],
             ],
         ];
-//        $studentService = new StudentService();
+//        $studentService = new StudentService($this->app);
 //        $result = $studentService->getAll();
         $view = new View($data);
-//        $view->setLayout('layout2')->setView('test');
+//        $view->setLayout('Layout2')->setView('test');
 //        $view->setView('index2','Index2');
         return $view;
     }
@@ -60,7 +49,7 @@ class IndexController extends Controller
     //dbDemo
     public function dbDemoAction()
     {
-        $studentService = new StudentService();
+        $studentService = new StudentService($this->app);
 
         //根据id查询数据
         $userResultId = $studentService->getId();
@@ -69,12 +58,12 @@ class IndexController extends Controller
         $tempData = $studentService->sortOrder();
 //        print_r($tempData);
         //查看成绩
-        $examService = new ExamService();
+        $examService = new ExamService($this->app);
         $source = $examService->getExam();
         $examTmp = $examService->getExam2();
 //        $tt=$examService->test();
         //查询--第二个数据库的数据
-        $employeeService = new EmployeeService();
+        $employeeService = new EmployeeService($this->app);
         $employeeResult = $employeeService->getAll();
         /** TODO::更多请阅读 @var \swap\utils\MysqliClass */
 
@@ -96,17 +85,9 @@ class IndexController extends Controller
     //api test
     public function apiAction()
     {
-        $studentService = new StudentService();
+        $studentService = new StudentService($this->app);
         $result = $studentService->getAll();
-//        return ApiTool::success($result);
-        $view = new View([
-            'code' => 200,
-            'msg' => '成功',
-            'data' => $result
-        ]);
-//        return $view->api();
-        $view->api();
-        return $view;
+        return $this->msg(1, '成功', $result);
     }
 
     public function dbPageAction()
@@ -116,7 +97,7 @@ class IndexController extends Controller
         if ($listNum > 50) {
             $listNum = 20;
         }
-        $stu = new StudentService();
+        $stu = new StudentService($this->app);
         $count = $stu->dbPageCount();
         $result = $stu->dbPage($page, $listNum);
         return new View(['count' => $count, 'list_num' => $listNum, 'result' => $result]);
@@ -125,12 +106,12 @@ class IndexController extends Controller
     //test
     public function testAction()
     {
-        $s = new StudentService();
+        $s = new StudentService($this->app);
 //        $resutl = $s->insertMulti();
 //        $resutl=$s->transaction();
 //        var_dump($resutl);
         $view = new View();
-        $view->setLayout('layout2')->setView('index', 'Index2');//设置跳转到别的页面
+        $view->setLayout('Layout2')->setView('index', 'Index2');//设置跳转到别的页面
         return $view;
     }
 
@@ -138,7 +119,12 @@ class IndexController extends Controller
     {
         $verifyCode = new VerifyCode();
         $code = $verifyCode->getCode();//获取验证码
-        $verifyCode->verifyPng();//输出验证码
+        $img = $verifyCode->verifyPng();//输出验证码
+        header('Cache-Control: private, max-age=0, no-store, no-cache, must-revalidate');
+        header('Cache-Control: post-check=0, pre-check=0', false);
+        header('Pragma: no-cache');
+        header("Content-type:image/png;");
+        return $img;
     }
 
     public function testPostAction()

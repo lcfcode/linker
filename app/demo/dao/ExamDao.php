@@ -10,30 +10,6 @@ use swap\core\Dao;
 
 class ExamDao extends Dao
 {
-    /**
-     * @inheritDoc
-     */
-    public function connectInfo(): array
-    {
-        return [
-            'table' => $this->tabName(),
-            'default_id' => $this->defaultId(),
-            'field' => $this->fieldArr(),
-        ];
-    }
-
-    //表名
-    public function tabName()
-    {
-        return 'exam';
-    }
-
-    //默认主键字段
-    public function defaultId()
-    {
-        return 'id';
-    }
-
     //表字段
     public function fieldArr()
     {
@@ -41,22 +17,5 @@ class ExamDao extends Dao
             'id' => 'id', 'student_id' => 'student_id', 'course_id' => 'course_id', 'score' => 'score', 'create_time' => 'create_time',
             'update_time' => 'update_time',
         ];
-    }
-
-    //表字段,直接返回字符串或者对应字段生成的别名
-    public function field($prefix = '', $tabAlias = '')
-    {
-        if (empty($prefix)) {
-            return implode(',', $this->fieldArr());
-        }
-        if (empty($tabAlias)) {
-            $tabAlias = $prefix;
-        }
-        $str = '';
-        $fieldArr = $this->fieldArr();
-        foreach ($fieldArr as $key => $row) {
-            $str .= ',' . $tabAlias . '.' . $row . ' as ' . $prefix . $key;
-        }
-        return trim($str, ',');
     }
 }

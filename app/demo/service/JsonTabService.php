@@ -7,8 +7,9 @@
 namespace app\demo\service;
 
 use app\demo\dao\JsonTabDao;
+use swap\core\Service;
 
-class JsonTabService
+class JsonTabService extends Service
 {
     private $jsonTabDao = null;
 
@@ -18,7 +19,7 @@ class JsonTabService
     public function dao()
     {
         if ($this->jsonTabDao === null) {
-            $this->jsonTabDao = new JsonTabDao();
+            $this->jsonTabDao = new JsonTabDao($this->app);
         }
         return $this->jsonTabDao;
     }

@@ -7,8 +7,9 @@
 namespace app\demo\service;
 
 use app\demo\dao\EmployeeDao;
+use swap\core\Service;
 
-class EmployeeService
+class EmployeeService extends Service
 {
     private $employeeDao = null;
 
@@ -18,7 +19,7 @@ class EmployeeService
     public function dao()
     {
         if ($this->employeeDao === null) {
-            $this->employeeDao = new EmployeeDao();
+            $this->employeeDao = new EmployeeDao($this->app);
         }
         return $this->employeeDao;
     }

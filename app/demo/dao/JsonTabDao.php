@@ -14,4 +14,12 @@ class JsonTabDao extends Dao
     {
         return 'db_2';
     }
+
+    //表字段
+    public function fieldArr()
+    {
+        return [
+            'id' => 'id', 'data' => 'data',
+        ];
+    }
 }

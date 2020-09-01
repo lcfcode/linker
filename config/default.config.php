@@ -6,10 +6,10 @@
 return [
     //默认数据库配置
     'db' => [
-        'host' => '192.168.31.89',
+        'host' => '127.0.0.1',
         'user' => 'root',
         'password' => 'Abcd4321',
-        'port' => '53306',
+        'port' => '3306',
         'database' => 'linker',
         'charset' => 'utf8',
         'drive' => 'mysql',
@@ -24,22 +24,22 @@ return [
             'drive' => 'mysql',
         ],
     ],
-    'mssql_db' => [
-        'host' => '192.168.31.89',
-        'user' => 'sa',
-        'password' => 'Abcd4321',
-        'database' => 'lcf_test',
-        'port' => '51433',
-        'charset' => 'utf-8',
-        'drive' => 'mssql',
-    ],
+//    'mssql_db' => [
+//        'host' => '192.168.31.89',
+//        'user' => 'sa',
+//        'password' => 'Abcd4321@',
+//        'database' => 'lcf_test',
+//        'port' => '51433',
+//        'charset' => 'utf-8',
+//        'drive' => 'mssql',
+//    ],
     //配置第二个数据库
     'db_2' => [
-        'host' => '192.168.31.89',
+        'host' => '127.0.0.1',
         'user' => 'root',
         'password' => 'Abcd4321',
         'database' => 'linker_two',
-        'port' => '53306',
+        'port' => '3306',
         'charset' => 'utf8',
         'drive' => 'mysql',
     ],
@@ -49,12 +49,14 @@ return [
         'port' => 6379,
         'db' => '0'
     ],
-    //配置日志文件路径(linux注意权限) 前面不要缺少'/',尾部不要添加'/'  路径是相对项目路径开始
-    'logs' => '/vars/logs',
+    //配置日志文件路径(linux注意权限) ,尾部不要添加'/'
+    'logs' => dirname(__DIR__) . '/store/logs',
     //模块配置文件
     'module_file' => 'Config.dev.php',
-    //包含可变的配置
-    'multi_profile' => 'common.config.php',
-    //错误异常处理实例(主要用于开发)
-    'err_obj' => '\\app\\AppException',
+    //配置首页文件(默认路由) linux上区分大小写,url上只有module和controller首字母不区分，其他位置都区分，大小写规则一致
+    'default_route' => [
+        'module' => 'demo', //与app/下的模块对应
+        'controller' => 'Index', //与控制器名称对应IndexController类
+        'action' => 'index' //IndexController类下的indexAction 方法
+    ],
 ];

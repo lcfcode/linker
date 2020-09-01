@@ -5,6 +5,7 @@ config/*.php
 !config/common.config.php
 !config/default.config.php
 #public/index.php
+public/*.log
 
 
 ###########################

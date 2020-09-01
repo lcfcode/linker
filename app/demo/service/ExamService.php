@@ -6,11 +6,12 @@
     
 namespace app\demo\service;
 
+use swap\core\Service;
 use app\demo\dao\ExamDao;
 use app\demo\dao\StudentDao;
 use app\demo\dao\CourseDao;
 
-class ExamService
+class ExamService extends Service
 {
     private $examDao = null;
     private $studentDao = null;
@@ -22,7 +23,7 @@ class ExamService
     public function dao()
     {
         if ($this->examDao === null) {
-            $this->examDao = new ExamDao();
+            $this->examDao = new ExamDao($this->app);
         }
         return $this->examDao;
     }

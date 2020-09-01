@@ -7,8 +7,9 @@
 namespace app\demo\service;
 
 use app\demo\dao\CourseDao;
+use swap\core\Service;
 
-class CourseService
+class CourseService extends Service
 {
     private $courseDao = null;
 
@@ -18,7 +19,7 @@ class CourseService
     public function dao()
     {
         if ($this->courseDao === null) {
-            $this->courseDao = new CourseDao();
+            $this->courseDao = new CourseDao($this->app);
         }
         return $this->courseDao;
     }
