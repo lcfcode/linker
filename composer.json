@@ -1,6 +1,7 @@
 {
   "name": "lcfdev/linker",
   "description": "work study",
+  "license": "LGPL-2.1",
   "type": "project",
   "authors": [
     {
@@ -9,18 +10,11 @@
     }
   ],
   "require": {
-    "php": ">=7.0",
-    "lcfdev/linkerlib": "dev-master",
-    "filp/whoops": "^2.7"
+    "php": ">=7.4",
+    "lcfdev/linkerlib": "dev-master"
   },
   "minimum-stability": "dev",
   "config": {
     "preferred-install": "dist"
-  },
-  "repositories": {
-    "packagist": {
-      "type": "composer",
-      "url": "https://mirrors.aliyun.com/composer/"
-    }
   }
 }
