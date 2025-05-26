@@ -1,0 +1,29 @@
+.p1 {
+  background: #ff0000;
+  color: #fff;
+  font-size: 16px;
+}
+.p0 {
+  color: #66CBF3;
+  font-size: 16px;
+}
+span {
+  color: #ff0000;
+}
+table {
+  width: 100%;
+  border-spacing: 0 10px;
+  /*border-collapse:separate*/
+}
+table tr td {
+  border: 1px solid #333;
+}
+hr {
+  border-top: 1px solid #333;
+}
+.p1 a {
+  color: #ffffff;
+}
+.p0 a {
+  color: #66cbf3;
+}

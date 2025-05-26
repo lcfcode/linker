@@ -1,0 +1,36 @@
+<link rel="stylesheet" type="text/css" href="/static/css/index-index-detail.css">
+<table>
+    <?php
+    $result = $this->data['result'];
+    if ($result) {
+        foreach ($result as $sk => $item) {
+            ?>
+            <tr>
+                <?php
+                foreach ($item as $k) {
+                    echo "<td>{$sk}-{$k}</td>";
+                }
+                ?>
+            </tr>
+            <?php
+        }
+    }
+    ?>
+</table>
+
+<!--分页-->
+<link rel="stylesheet" type="text/css" href="/static/paging/paging.css">
+<script src="/static/paging/paging.js?<?php echo time(); ?>"></script>
+<p style="height: 50px"></p>
+<div style="width: 100%;" id="my_paging">
+</div>
+<!--分页-->
+<script>
+    $(function () {
+        var pageSize =<?php echo $this->data['list_num'] ?>;
+        var showBtn = 10;
+        var totalCount =<?php echo $this->data['count'] ?>;
+        /* 绑定事件 */
+        getPaging(totalCount, showBtn, 'my_paging', pageSize);
+    });
+</script>

@@ -1,0 +1,89 @@
+<link rel="stylesheet" type="text/css" href="/static/css/index-index-detail.css">
+
+<p class="p1">根据id查询</p>
+<table>
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>sex</td>
+        <td>number</td>
+        <td>specialty</td>
+        <td>qq</td>
+        <td>update_time</td>
+    </tr>
+    <tr>
+        <td><?php echo $this->data['user_result_id']['id']; ?></td>
+        <td><?php echo $this->data['user_result_id']['name']; ?></td>
+        <td><?php echo $this->data['user_result_id']['sex']; ?></td>
+        <td><?php echo $this->data['user_result_id']['job_number']; ?></td>
+        <td><?php echo $this->data['user_result_id']['specialty']; ?></td>
+        <td><?php echo $this->data['user_result_id']['qq']; ?></td>
+        <td><?php echo $this->data['user_result_id']['update_time']; ?></td>
+    </tr>
+</table>
+<p class="p1">模糊查询</p>
+<table>
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>sex</td>
+        <td>number</td>
+        <td>specialty</td>
+        <td>qq</td>
+        <td>update_time</td>
+    </tr>
+    <?php foreach ($this->data['like_result'] as $rowLike): ?>
+        <tr>
+            <td><?php echo $rowLike['id']; ?></td>
+            <td><?php echo $rowLike['name']; ?></td>
+            <td><?php echo $rowLike['sex']; ?></td>
+            <td><?php echo $rowLike['job_number']; ?></td>
+            <td><?php echo $rowLike['specialty']; ?></td>
+            <td><?php echo $rowLike['qq']; ?></td>
+            <td><?php echo $rowLike['update_time']; ?></td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+<p class="p1">成绩</p>
+<table>
+    <tr>
+        <td>number</td>
+        <td>name</td>
+        <td>course_nane</td>
+        <td>score</td>
+    </tr>
+    <?php foreach ($this->data['source'] as $rowSource): ?>
+        <tr>
+            <td><?php echo $rowSource['job_number']; ?></td>
+            <td><?php echo $rowSource['name']; ?></td>
+            <td><?php echo $rowSource['course_name']; ?></td>
+            <td><?php echo $rowSource['score']; ?></td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+<p class="p1">第二个数据库的数据</p>
+<table>
+    <tr>
+        <td>num</td>
+        <td>id</td>
+        <td>name</td>
+        <td>age</td>
+        <td>sex</td>
+    </tr>
+    <?php foreach ($this->data['employee'] as $rowEmp): ?>
+        <tr>
+            <td><?php echo $rowEmp['num']; ?></td>
+            <td><?php echo $rowEmp['id']; ?></td>
+            <td><?php echo $rowEmp['name']; ?></td>
+            <td><?php echo $rowEmp['age']; ?></td>
+            <td><?php echo $rowEmp['sex']; ?></td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+
+<script>
+    window.onload = function () {
+        test();
+    };
+</script>
+<script src="/static/js/index-index-detail.js"></script>

@@ -1,0 +1,35 @@
+{
+  "name": "lcfdev/linker",
+  "description": "work study",
+  "type": "project",
+  "authors": [
+    {
+      "name": "lcfdev",
+      "email": "lcf@jionx.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.0",
+    "ext-json": "*",
+    "ext-mysqli": "*",
+    "ext-curl": "*",
+    "ext-ftp": "*",
+    "ext-exif": "*",
+    "ext-gd": "*",
+    "ext-iconv": "*",
+    "ext-mongodb": "*",
+    "ext-redis": "*",
+    "lcfdev/linklib": "dev-master"
+  },
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "app\\": "app"
+    }
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "@php test.php"
+    ]
+  }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <script src="jquery.min.js"></script>
+    <script>
+        function selfAdaption(correctScale){var dpr,rem,scale;var docEl=document.documentElement;var fontEl=document.createElement('style');var metaEl=document.querySelector('meta[name="viewport"]');dpr=window.devicePixelRatio||1;rem=$(window).width()*dpr/10;scale=1/dpr;if(!window.myWidth){window.myWidth=$(window).width()}rem=window.myWidth*dpr/10;if(correctScale){scale=correctScale}else{scale=1/dpr}metaEl.setAttribute('content','width='+dpr*window.myWidth+',initial-scale='+scale+',maximum-scale='+scale+', minimum-scale='+scale+',user-scalable=no');docEl.setAttribute('data-dpr',dpr);docEl.firstElementChild.appendChild(fontEl);fontEl.innerHTML='html{font-size:'+rem+'px !important;}';window.rem2px=function(v){v=parseFloat(v);return v*rem};window.px2rem=function(v){v=parseFloat(v);return v/rem};window.dpr=dpr;window.rem=rem}        window.myWidth = 0;
+        selfAdaption();
+    </script>
+</head>
+<link href="../../static/common/css/mobile-rest.css" rel="stylesheet" type="text/css">
+
+<body>
+
+<!--弹框-->
+<link href="/plugin/msg_box_m/new-box-m.css" rel="stylesheet" type="text/css">
+<script src="/plugin/msg_box_m/new-box-m.js"></script>
+<div id="mask"></div>
+<div id="_msg_box" class="_msg-box">
+    <div id="msg_info" class="_msg-content">
+        <div class="blocked-title">
+            <p class="p-title">消息提示</p>
+        </div>
+        <div class="blocked-button">
+            <a href="javascript:;" class="msg-button msg-enter">确 定</a>
+            <a href="javascript:;" class="msg-button msg-button-c msg-cancel">取 消</a>
+        </div>
+    </div>
+    <div id="msg_info2" class="_msg-content">
+        <div class="blocked-title">
+            <p class="p-title">消息提示</p>
+        </div>
+        <div class="blocked-button">
+            <a href="javascript:;" class="msg-button msg-enter">确 定</a>
+        </div>
+    </div>
+
+    <div id="info_loading" class="_msg-content">
+        <div class="blocked-info">
+            <div class="msg-img-loading"></div>
+        </div>
+        <div class="blocked-title">
+            <p class="p-title ">正在加载中...</p>
+        </div>
+    </div>
+</div>
+
+<div id="my_test" style="background: red;height: 1rem">test</div>
+</body>
+</html>
+
+
+
+<script>
+    $(function(){
+//        alert(1)
+       $("#my_test").click(function(){
+           msgBox.show_box("#msg_info2","正在加载正在加载正在加载正在加载",test,test2);
+       });
+        function test(){
+            console.log("6545645646！");
+            alert('确定')
+        }
+        function test2(){
+            alert("取消！");
+        }
+    });
+</script>

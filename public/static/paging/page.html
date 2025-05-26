@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="paging.css">
+    <script src="paging.js"></script>
+</head>
+<body>
+<div style="height: 210px;">
+     <h1>demo</h1>
+</div>
+<!--分页-->
+<p style="height: 50px"></p>
+<div style="width: 100%;" id="my_paging">
+</div>
+<!--分页-->
+</body>
+</html>
+<script>
+    $(function () {
+        var pageSize  =20;
+        var showBtn =10;
+        var totalCount =101;
+        /* 绑定事件 */
+        getPaging(totalCount, showBtn, 'my_paging', pageSize)
+    });
+</script>

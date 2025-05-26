@@ -1,0 +1,17 @@
+<input id="a" value="xxx" type="text">
+
+<button id="btn">测试按钮</button>
+<script>
+    $(function () {
+        $("#btn").click(function () {
+            var a = $("#a").val();
+            var url = '/view/index/post',
+                data = {name: a, index: 1},
+                cb = function (ret) {
+                },
+                er = function (tes) {
+                };
+            _ajax_post(url, data, cb, er);
+        });
+    });
+</script>

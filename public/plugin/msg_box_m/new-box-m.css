@@ -1,0 +1,99 @@
+#mask {
+  display: none;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: #000;
+  width: 100%;
+  opacity: .5;
+  filter: alpha(opacity=50);
+  z-index: 1045;
+  height: 100%;
+}
+._msg-box {
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  z-index: 1046;
+  display: none;
+}
+._msg-box ._msg-content {
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #fff;
+  width: 6.5rem;
+  height: 3.5rem;
+  border-radius: .1rem;
+  display: none;
+  overflow: hidden;
+}
+._msg-box ._msg-content .blocked-info {
+  text-align: center;
+  position: relative;
+  height: 1.5rem;
+  width: 100%;
+}
+._msg-box ._msg-content .blocked-info .msg-img-loading {
+  background-image: url(icon/loading.gif);
+  background-size: .7rem .7rem;
+  background-repeat: no-repeat;
+  width: .7rem;
+  height: .7rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+._msg-box ._msg-content .blocked-title {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 2.5rem;
+}
+._msg-box ._msg-content .blocked-title .p-title {
+  text-align: center;
+  width: 100%;
+  font-size: .4rem;
+  color: #555;
+  height: .6rem;
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+  left: 0;
+  top: 1rem;
+  right: 0;
+  margin: auto;
+}
+._msg-box ._msg-content .blocked-button {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1rem;
+  display: flex;
+  border-top: 1px solid #999;
+}
+._msg-box ._msg-content .blocked-button .msg-button {
+  color: #000;
+  font-size: .45rem;
+  line-height: 1rem;
+  flex: 1;
+  text-align: center;
+  background: #fafafa;
+  text-decoration: none;
+}
+._msg-box ._msg-content .blocked-button .msg-button-c {
+  border-left: 1px solid #999;
+}
