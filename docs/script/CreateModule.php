@@ -8,19 +8,20 @@
 namespace script;
 
 //生成路径
-$root = dirname(__DIR__);
+$root = dirname(__DIR__, 2);
 //数据库配置文件
-$configFile = dirname(__DIR__) . '/config/dev.php';
-$moduleName = 'view2';
+$configFile = $root . '/config/dev.php';
+$moduleName = 'view2';//创建的模块
+$isView = true;//是否创建含有页面的模块
+
 $app = new CreateModule();
-$app->run($root, $configFile, $moduleName, true);
+$app->run($root, $configFile, $moduleName, $isView);
 
 class CreateModule
 {
     public function run($root, $configFile, $module, $isView)
     {
         $dbConfigs = $this->configRead($configFile);
-//        print_r($dbConfigs);
         $patch = $this->initModule($root, $module, $isView);
         foreach ($dbConfigs as $key => $dbConfig) {
             list($tabStr, $fieldArr) = $this->readDb($dbConfig);
@@ -141,9 +142,6 @@ class CreateModule
         if (!is_dir($patch . '/controller/')) {
             mkdir($patch . '/controller/', 0777, true);
         }
-        if (!is_dir($patch . '/config/')) {
-            mkdir($patch . '/config/', 0777, true);
-        }
         if ($isView === true) {
             if (!is_dir($patch . '/view/Error/')) {
                 mkdir($patch . '/view/Error/', 0777, true);
@@ -204,13 +202,6 @@ class CreateModule
         } else {
             $this->generateFile($indexFile, $this->getIndexContent($module, $isView));
             echo "create:IndexController.php done " . PHP_EOL;
-        }
-        $moduleConfig = $patch . '/config/Config.dev.php';
-        if (is_file($moduleConfig)) {
-            echo "{$module} Config.dev.php exists ---------------------------" . PHP_EOL;
-        } else {
-            $this->generateFile($moduleConfig, $this->getModuleConfig());
-            echo "create:{$module} Config.dev.php done " . PHP_EOL;
         }
         if ($isView === true) {
             $this->createView($module, $patch);

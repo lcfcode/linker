@@ -13,7 +13,7 @@ include __DIR__ . '/help.php';
 include dirname(__DIR__) . '/vendor/autoload.php';
 
 $app = new \Swap\Core\App('dev');
-$app->run();
+$app->http();
 
 $endTime = microtime(true);
 $endMemory = memory_get_usage();

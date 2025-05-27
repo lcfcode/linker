@@ -55,8 +55,6 @@ return [
         //日志大小，单位 M
         'size' => 10
     ],
-    //模块配置文件
-    'module_file' => 'Config.dev.php',
     //配置首页文件(默认路由) linux上区分大小写,url上只有module和controller首字母不区分，其他位置都区分，大小写规则一致
     'default_route' => [
         'module' => 'view', //与app/下的模块对应

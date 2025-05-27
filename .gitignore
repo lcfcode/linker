@@ -1,5 +1,6 @@
-.idea/*
-vendor/*
-config/*.php
-!config/default.config.php
+.idea
+vendor
+config/dev.php
+config/test.php
+config/pro.php
 composer.lock

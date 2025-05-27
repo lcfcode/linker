@@ -11,5 +11,5 @@ header('Content-Type:text/html;charset=UTF-8');
 include dirname(__DIR__) . '/vendor/autoload.php';
 
 $app = new \swap\core\App('pro');
-$app->run();
+$app->http();
 

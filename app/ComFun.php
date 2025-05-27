@@ -6,6 +6,7 @@ class ComFun
 {
     public static function json($status, $msg, $data = null): array
     {
+        header('Content-Type:application/json; charset=utf-8');
         return ['code' => $status, 'msg' => $msg, 'data' => $data];
     }
 
