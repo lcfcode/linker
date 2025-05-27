@@ -6,13 +6,12 @@ if /i %timeVar% LSS 10 (set timeVar=0%time:~1,1%)
 set timeVar=%timeVar%%time:~3,2%%time:~6,2%
 
 set codePath=%~dp0
+cd /d %codePath%
 
-cd %codePath%
 git pull
 git add .
 git commit -m "bat_commit: %date%%time%"
 git push origin master
 git push gitee master
-::pause
-
+rem pause
 timeout /t 5 /nobreak
