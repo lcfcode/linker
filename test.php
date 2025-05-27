@@ -7,7 +7,7 @@ cd /d %~dp0
 
 git pull
 git add .
-git commit -m "bat_commit: %date%%time%"
+git commit -m "bat_commit: %date% %time%"
 git push origin master
 git push gitee master
 rem pause
