@@ -5,3 +5,5 @@ config/test.php
 config/pro.php
 composer.lock
 .1.git_pull.bat
+.gitpull.bat
+.gitpush.bat
