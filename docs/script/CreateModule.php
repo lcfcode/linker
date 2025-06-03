@@ -11,8 +11,8 @@ namespace script;
 $root = dirname(__DIR__, 2);
 //数据库配置文件
 $configFile = $root . '/config/dev.php';
-$moduleName = 'view2';//创建的模块
-$isView = true;//是否创建含有页面的模块
+$moduleName = 'api';//创建的模块
+$isView = false;//是否创建含有页面的模块
 
 $app = new CreateModule();
 $app->run($root, $configFile, $moduleName, $isView);
@@ -390,7 +390,7 @@ class IndexController extends Controller
 {
     public function indexAction()
     {
-        return \$this->msg(0, '成功', ['date' => date('Y-m-d H:i:s')]);
+        return ['code' => 1, 'msg' => '成功', 'data' => ['date' => date('Y-m-d H:i:s')]];
     }
 }
 DDD;
