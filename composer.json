@@ -29,7 +29,7 @@
   },
   "scripts": {
     "post-autoload-dump": [
-      "@php test.php"
+      "@php script/git_test.php"
     ]
   }
 }
